@@ -84,7 +84,13 @@ db.collection("pedidos").onSnapshot((snapshot) => {
           title: msg.title,
           body: msg.body(nomeCliente),
         },
-        android: { priority: "high" },
+        android: {
+  priority: "high",
+  notification: {
+    sound: "notificacao",
+    channelId: "high_importance_channel",
+  },
+},
         apns: {
           payload: { aps: { contentAvailable: true } },
         },
